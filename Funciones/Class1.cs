@@ -1,4 +1,4 @@
-﻿namespace ClassLibrary3
+﻿namespace Funciones
 {
     public class Class1
     {
