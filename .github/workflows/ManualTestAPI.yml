@@ -1,0 +1,34 @@
+name: Execute Manual Tests with @API Tag
+
+on:
+  workflow_dispatch:  # Esto permite ejecutar el flujo manualmente desde la UI de GitHub Actions
+
+jobs:
+  manual-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up environment (dotnet, npm, etc.)
+        run: |
+          # Dependiendo de tu tecnología, instala las dependencias necesarias aquí
+          dotnet restore
+          dotnet build
+
+      - name: Run tests with @API tag
+        run: |
+          # Suponiendo que usas xUnit, NUnit, etc. para tus pruebas
+          dotnet test --filter "@API"
+      
+      - name: Generate test report
+        run: |
+          # Si usas alguna herramienta de pruebas que soporte generar un reporte HTML
+          dotnet test --logger "html;logfile=test-report.html"
+          
+      - name: Upload test report as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-report
+          path: test-report.html
