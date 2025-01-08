@@ -23,7 +23,7 @@ jobs:
       run: ls -R
 
     - name: Restore Dependencies
-      run: dotnet restore ActividadesParamo/ConsoleApp1.sln # Adjust path if necessary
+      run: dotnet restore Get request to Bookin.sln # Adjust path if necessary
 
     - name: Build Solution
-      run: dotnet build ActividadesParamo/ConsoleApp1.sln --no-restore
+      run: dotnet build Get request to Bookin.sln --no-restore
