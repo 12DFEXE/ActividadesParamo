@@ -21,8 +21,8 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore build ActividadesParamo/Get request to Bookin.sln
+      run: dotnet restore "ActividadesParamo/Get request to Bookin.sln"
     - name: Build
-      run: dotnet build ActividadesParamo/Get request to Bookin.sln--no-restore
+      run: dotnet build "ActividadesParamo/Get request to Bookin.sln"--no-restore
     - name: Test
-      run: dotnet test build ActividadesParamo/Get request to Bookin.sln --no-build --verbosity normal
+      run: dotnet test build "ActividadesParamo/Get request to Bookin.sln" --no-build --verbosity normal
