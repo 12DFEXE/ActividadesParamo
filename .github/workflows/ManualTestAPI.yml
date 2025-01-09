@@ -14,21 +14,16 @@ jobs:
       - name: Set up environment (dotnet, npm, etc.)
         run: |
           # Dependiendo de tu tecnología, instala las dependencias necesarias aquí
-          dotnet restore
-          dotnet build
+          dotnet restore /MockTest/MockTest
+          dotnet build /MockTest/MockTest
 
       - name: Run tests with @API tag
         run: |
-          # Suponiendo que usas xUnit, NUnit, etc. para tus pruebas
-          dotnet test --filter "@API"
-      
+          # Ejecuta solo las pruebas etiquetadas con @API en el proyecto específico
+          dotnet test /MockTest/MockTest --filter "Category=API"
+
       - name: Generate test report
         run: |
-          # Si usas alguna herramienta de pruebas que soporte generar un reporte HTML
-          dotnet test --logger "html;logfile=test-report.html"
-          
-      - name: Upload test report as artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: test-report
-          path: test-report.html
+          # Genera un reporte HTML de los tests
+          dotnet test /MockTest/MockTest --logger "html;logfile=test-report.html"
+
